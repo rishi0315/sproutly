@@ -1,0 +1,907 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sproutly - Financial Literacy for Students</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .page { display: none; }
+        .page.active { display: block; }
+                 .nav-active { background-color: #dcfce7; color: #16a34a; }
+    </style>
+</head>
+ <body class="bg-gradient-to-br from-green-50 to-emerald-100 min-h-screen">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                                         <button onclick="showPage('home')" class="flex-shrink-0 flex items-center">
+                         <span class="text-2xl font-bold text-green-600">Sproutly</span>
+                     </button>
+                </div>
+                
+                <div class="hidden md:flex items-center space-x-8">
+                    <button onclick="showPage('home')" class="nav-btn px-3 py-2 rounded-md text-sm font-medium" data-page="home">Home</button>
+                    <button onclick="showPage('dashboard')" class="nav-btn px-3 py-2 rounded-md text-sm font-medium" data-page="dashboard">Dashboard</button>
+                    <button onclick="showPage('games')" class="nav-btn px-3 py-2 rounded-md text-sm font-medium" data-page="games">Game Zone</button>
+                    <button onclick="showPage('squad')" class="nav-btn px-3 py-2 rounded-md text-sm font-medium" data-page="squad">Squad</button>
+                    <button onclick="showPage('ai-tools')" class="nav-btn px-3 py-2 rounded-md text-sm font-medium" data-page="ai-tools">AI Tools</button>
+                    <button onclick="showPage('profile')" class="nav-btn px-3 py-2 rounded-md text-sm font-medium" data-page="profile">Profile</button>
+                </div>
+
+                <div class="md:hidden flex items-center">
+                                         <button onclick="toggleMobileMenu()" class="text-gray-700 hover:text-green-600">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <div id="mobile-menu" class="md:hidden hidden">
+                <div class="px-2 pt-2 pb-3 space-y-1">
+                    <button onclick="showPage('home')" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium">Home</button>
+                    <button onclick="showPage('dashboard')" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium">Dashboard</button>
+                    <button onclick="showPage('games')" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium">Game Zone</button>
+                    <button onclick="showPage('squad')" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium">Squad</button>
+                    <button onclick="showPage('ai-tools')" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium">AI Tools</button>
+                    <button onclick="showPage('profile')" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium">Profile</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Home Page -->
+    <div id="home" class="page active">
+        <div class="min-h-screen">
+                         <!-- Hero Section -->
+             <div class="bg-gradient-to-r from-green-600 to-emerald-600 text-white">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
+                    <div class="text-center">
+                        <h1 class="text-4xl md:text-6xl font-bold mb-6">
+                            Where Smart Money Habits Begin
+                        </h1>
+                        <p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto">
+                            Build your financial future with interactive tools, games, and a supportive community of students learning together.
+                        </p>
+                                                 <button onclick="showPage('dashboard')" class="bg-white text-green-600 px-8 py-4 rounded-lg text-lg font-semibold hover:bg-gray-100 transition duration-300">
+                            Get Started
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Features Section -->
+            <div class="py-16 bg-white">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="text-center mb-12">
+                        <h2 class="text-3xl font-bold text-gray-900 mb-4">Why Choose Spirutly?</h2>
+                        <p class="text-xl text-gray-600">Everything you need to master your finances</p>
+                    </div>
+                    <div class="grid md:grid-cols-3 gap-8">
+                                                 <div class="text-center p-6">
+                             <div class="bg-green-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                                 <span class="text-2xl">📊</span>
+                             </div>
+                             <h3 class="text-xl font-semibold mb-2">Smart Tracking</h3>
+                             <p class="text-gray-600">Track your income, expenses, and savings with beautiful charts and insights.</p>
+                         </div>
+                         <div class="text-center p-6">
+                             <div class="bg-green-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                                 <span class="text-2xl">🎮</span>
+                             </div>
+                             <h3 class="text-xl font-semibold mb-2">Learning Games</h3>
+                             <p class="text-gray-600">Master financial concepts through fun, interactive games and challenges.</p>
+                         </div>
+                         <div class="text-center p-6">
+                             <div class="bg-green-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                                 <span class="text-2xl">👥</span>
+                             </div>
+                             <h3 class="text-xl font-semibold mb-2">Community</h3>
+                             <p class="text-gray-600">Join the Sproutly Squad and learn together with friends and peers.</p>
+                         </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Dashboard Page -->
+    <div id="dashboard" class="page">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+            <h1 class="text-3xl font-bold text-gray-900 mb-8">Financial Dashboard</h1>
+            
+            <!-- Summary Cards -->
+            <div class="grid md:grid-cols-3 gap-6 mb-8">
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h3 class="text-lg font-semibold text-gray-700 mb-2">Monthly Income</h3>
+                    <p class="text-3xl font-bold text-green-600">$1,200</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h3 class="text-lg font-semibold text-gray-700 mb-2">Monthly Expenses</h3>
+                    <p class="text-3xl font-bold text-red-600">$800</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h3 class="text-lg font-semibold text-gray-700 mb-2">Monthly Savings</h3>
+                    <p class="text-3xl font-bold text-blue-600">$400</p>
+                </div>
+            </div>
+
+            <!-- Interactive Charts -->
+            <div class="grid md:grid-cols-2 gap-8 mb-8">
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h3 class="text-xl font-semibold mb-4">Spending Breakdown</h3>
+                    <div class="flex flex-col items-center">
+                        <canvas id="pieChart" width="250" height="250" class="mb-4"></canvas>
+                        <div id="pieLegend" class="grid grid-cols-1 gap-2 text-sm w-full"></div>
+                    </div>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h3 class="text-xl font-semibold mb-4">Monthly Trends</h3>
+                    <div class="flex flex-col items-center">
+                        <canvas id="barChart" width="350" height="250" class="mb-4"></canvas>
+                        <div class="flex justify-center space-x-4 text-sm">
+                            <div class="flex items-center">
+                                <div class="w-3 h-3 bg-green-500 rounded mr-2"></div>
+                                <span>Income</span>
+                            </div>
+                            <div class="flex items-center">
+                                <div class="w-3 h-3 bg-red-500 rounded mr-2"></div>
+                                <span>Expenses</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Goals -->
+            <div class="bg-white p-6 rounded-lg shadow-md">
+                <h3 class="text-xl font-semibold mb-4">Financial Goals</h3>
+                <div class="space-y-4">
+                    <div class="border rounded-lg p-4">
+                        <div class="flex justify-between items-center mb-2">
+                            <h4 class="font-semibold">Emergency Fund</h4>
+                            <span class="text-sm text-gray-600">$400 / $1000</span>
+                        </div>
+                        <div class="w-full bg-gray-200 rounded-full h-2">
+                            <div class="bg-green-500 h-2 rounded-full" style="width: 40%"></div>
+                        </div>
+                    </div>
+                    <div class="border rounded-lg p-4">
+                        <div class="flex justify-between items-center mb-2">
+                            <h4 class="font-semibold">New Laptop</h4>
+                            <span class="text-sm text-gray-600">$200 / $800</span>
+                        </div>
+                        <div class="w-full bg-gray-200 rounded-full h-2">
+                            <div class="bg-blue-500 h-2 rounded-full" style="width: 25%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Game Zone Page -->
+    <div id="games" class="page">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+            <h1 class="text-3xl font-bold text-gray-900 mb-8">Game Zone</h1>
+            
+            <div class="bg-white rounded-lg shadow-md p-6">
+                <div class="flex space-x-4 mb-6">
+                    <button onclick="showGame('budget')" class="game-btn px-4 py-2 rounded-lg" data-game="budget">Budget Challenge</button>
+                    <button onclick="showGame('save')" class="game-btn px-4 py-2 rounded-lg" data-game="save">Save vs Spend</button>
+                </div>
+
+                <div id="budget-game" class="game-content">
+                    <div class="text-center">
+                        <h3 class="text-xl font-semibold mb-4">Budget Challenge</h3>
+                        <p class="text-gray-600 mb-4">Allocate your monthly budget wisely across different categories!</p>
+                                                 <div class="bg-green-50 p-6 rounded-lg">
+                            <p class="text-lg mb-4">Your Score: <span id="budget-score">0</span></p>
+                            <p class="text-sm mb-4">Budget: $<span id="budget-amount">1000</span></p>
+                            <div class="grid grid-cols-2 gap-4 mb-4">
+                                <div class="text-left">
+                                    <label class="block text-sm font-medium mb-1">Food & Dining</label>
+                                    <input type="range" id="food-budget" min="0" max="400" value="300" class="w-full" oninput="updateBudget()">
+                                    <span id="food-value" class="text-sm">$300</span>
+                                </div>
+                                <div class="text-left">
+                                    <label class="block text-sm font-medium mb-1">Transportation</label>
+                                    <input type="range" id="transport-budget" min="0" max="200" value="150" class="w-full" oninput="updateBudget()">
+                                    <span id="transport-value" class="text-sm">$150</span>
+                                </div>
+                                <div class="text-left">
+                                    <label class="block text-sm font-medium mb-1">Entertainment</label>
+                                    <input type="range" id="entertainment-budget" min="0" max="300" value="200" class="w-full" oninput="updateBudget()">
+                                    <span id="entertainment-value" class="text-sm">$200</span>
+                                </div>
+                                <div class="text-left">
+                                    <label class="block text-sm font-medium mb-1">Savings</label>
+                                    <input type="range" id="savings-budget" min="0" max="400" value="200" class="w-full" oninput="updateBudget()">
+                                    <span id="savings-value" class="text-sm">$200</span>
+                                </div>
+                            </div>
+                            <p class="text-sm mb-4">Remaining: $<span id="budget-remaining">150</span></p>
+                                                         <button onclick="playBudgetGame()" class="bg-green-600 text-white px-6 py-3 rounded-lg hover:bg-green-700">
+                                Submit Budget
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="save-game" class="game-content hidden">
+                    <div class="text-center">
+                        <h3 class="text-xl font-semibold mb-4">Save vs Spend Challenge</h3>
+                        <p class="text-gray-600 mb-4">Make smart decisions about saving vs spending!</p>
+                        <div class="bg-green-50 p-6 rounded-lg">
+                            <p class="text-lg mb-4">Your Score: <span id="save-score">0</span></p>
+                            <p class="text-lg mb-4">Money: $<span id="money-amount">500</span></p>
+                            <div id="scenario-container" class="mb-4">
+                                <p class="font-medium mb-2" id="scenario-text">You have $500. A new phone costs $400. What do you do?</p>
+                                <div class="space-y-2">
+                                    <button onclick="makeDecision('save')" class="w-full bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">
+                                        Save the money for emergencies
+                                    </button>
+                                    <button onclick="makeDecision('spend')" class="w-full bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700">
+                                        Buy the phone now
+                                    </button>
+                                </div>
+                            </div>
+                            <button onclick="nextScenario()" class="bg-green-600 text-white px-6 py-3 rounded-lg hover:bg-green-700">
+                                Next Scenario
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Squad Page -->
+    <div id="squad" class="page">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+                         <h1 class="text-3xl font-bold text-gray-900 mb-8">Sproutly Squad</h1>
+            
+            <div class="bg-white rounded-lg shadow-md">
+                <div class="border-b">
+                    <nav class="flex space-x-8 px-6">
+                        <button onclick="showSquadTab('groups')" class="squad-tab py-4 px-1 border-b-2 font-medium text-sm" data-tab="groups">Groups</button>
+                        <button onclick="showSquadTab('challenges')" class="squad-tab py-4 px-1 border-b-2 font-medium text-sm" data-tab="challenges">Challenges</button>
+                        <button onclick="showSquadTab('goals')" class="squad-tab py-4 px-1 border-b-2 font-medium text-sm" data-tab="goals">Goals</button>
+                        <button onclick="showSquadTab('badges')" class="squad-tab py-4 px-1 border-b-2 font-medium text-sm" data-tab="badges">Badges</button>
+                    </nav>
+                </div>
+
+                <div class="p-6">
+                    <div id="groups-tab" class="squad-content">
+                        <h3 class="text-lg font-semibold mb-4">Join Groups</h3>
+                        <div class="grid md:grid-cols-2 gap-4">
+                                                         <div class="border rounded-lg p-4">
+                                 <h4 class="font-semibold">Budget Masters</h4>
+                                 <p class="text-gray-600">Learn budgeting together</p>
+                                 <button class="mt-2 bg-green-600 text-white px-4 py-2 rounded">Join</button>
+                             </div>
+                             <div class="border rounded-lg p-4">
+                                 <h4 class="font-semibold">Saving Squad</h4>
+                                 <p class="text-gray-600">Share saving tips</p>
+                                 <button class="mt-2 bg-green-600 text-white px-4 py-2 rounded">Join</button>
+                             </div>
+                        </div>
+                    </div>
+
+                                         <div id="challenges-tab" class="squad-content hidden">
+                         <h3 class="text-lg font-semibold mb-4">Active Challenges</h3>
+                         <div class="space-y-4">
+                             <div class="border rounded-lg p-4">
+                                 <h4 class="font-semibold">30-Day No Spend Challenge</h4>
+                                 <p class="text-gray-600">Avoid unnecessary purchases for 30 days</p>
+                                 <div class="mt-2">
+                                     <span class="text-sm text-gray-500">Progress: 15/30 days</span>
+                                     <div class="w-full bg-gray-200 rounded-full h-2 mt-1">
+                                         <div class="bg-green-500 h-2 rounded-full" style="width: 50%"></div>
+                                     </div>
+                                 </div>
+                             </div>
+                             <div class="border rounded-lg p-4">
+                                 <h4 class="font-semibold">Emergency Fund Builder</h4>
+                                 <p class="text-gray-600">Save $1000 emergency fund in 6 months</p>
+                                 <div class="mt-2">
+                                     <span class="text-sm text-gray-500">Progress: $400/$1000</span>
+                                     <div class="w-full bg-gray-200 rounded-full h-2 mt-1">
+                                         <div class="bg-blue-500 h-2 rounded-full" style="width: 40%"></div>
+                                     </div>
+                                 </div>
+                             </div>
+                             <div class="border rounded-lg p-4">
+                                 <h4 class="font-semibold">Weekly Budget Master</h4>
+                                 <p class="text-gray-600">Stay within budget for 4 consecutive weeks</p>
+                                 <div class="mt-2">
+                                     <span class="text-sm text-gray-500">Progress: 2/4 weeks</span>
+                                     <div class="w-full bg-gray-200 rounded-full h-2 mt-1">
+                                         <div class="bg-purple-500 h-2 rounded-full" style="width: 50%"></div>
+                                     </div>
+                                 </div>
+                             </div>
+                             <div class="border rounded-lg p-4">
+                                 <h4 class="font-semibold">Investment Starter</h4>
+                                 <p class="text-gray-600">Learn about investing and start with $100</p>
+                                 <div class="mt-2">
+                                     <span class="text-sm text-gray-500">Progress: Research phase</span>
+                                     <div class="w-full bg-gray-200 rounded-full h-2 mt-1">
+                                         <div class="bg-yellow-500 h-2 rounded-full" style="width: 25%"></div>
+                                     </div>
+                                 </div>
+                             </div>
+                         </div>
+                     </div>
+
+                    <div id="goals-tab" class="squad-content hidden">
+                        <h3 class="text-lg font-semibold mb-4">Shared Goals</h3>
+                        <div class="space-y-4">
+                            <div class="border rounded-lg p-4">
+                                <h4 class="font-semibold">Emergency Fund Challenge</h4>
+                                <p class="text-gray-600">Save $1000 emergency fund</p>
+                                <button class="mt-2 bg-green-600 text-white px-4 py-2 rounded">Support</button>
+                            </div>
+                        </div>
+                    </div>
+
+                                         <div id="badges-tab" class="squad-content hidden">
+                         <h3 class="text-lg font-semibold mb-4">Your Badges</h3>
+                         <div class="grid grid-cols-4 gap-4">
+                             <div class="text-center">
+                                 <div class="w-16 h-16 bg-yellow-400 rounded-full mx-auto mb-2 flex items-center justify-center">
+                                     <span class="text-2xl">🏆</span>
+                                 </div>
+                                 <p class="text-sm">First Save</p>
+                             </div>
+                             <div class="text-center">
+                                 <div class="w-16 h-16 bg-blue-400 rounded-full mx-auto mb-2 flex items-center justify-center">
+                                     <span class="text-2xl">📊</span>
+                                 </div>
+                                 <p class="text-sm">Budget Master</p>
+                             </div>
+                             <div class="text-center">
+                                 <div class="w-16 h-16 bg-green-400 rounded-full mx-auto mb-2 flex items-center justify-center">
+                                     <span class="text-2xl">💰</span>
+                                 </div>
+                                 <p class="text-sm">Emergency Fund</p>
+                             </div>
+                             <div class="text-center">
+                                 <div class="w-16 h-16 bg-purple-400 rounded-full mx-auto mb-2 flex items-center justify-center">
+                                     <span class="text-2xl">🎯</span>
+                                 </div>
+                                 <p class="text-sm">Goal Setter</p>
+                             </div>
+                             <div class="text-center">
+                                 <div class="w-16 h-16 bg-red-400 rounded-full mx-auto mb-2 flex items-center justify-center">
+                                     <span class="text-2xl">🔥</span>
+                                 </div>
+                                 <p class="text-sm">Streak Master</p>
+                             </div>
+                             <div class="text-center">
+                                 <div class="w-16 h-16 bg-indigo-400 rounded-full mx-auto mb-2 flex items-center justify-center">
+                                     <span class="text-2xl">📈</span>
+                                 </div>
+                                 <p class="text-sm">Investor</p>
+                             </div>
+                             <div class="text-center">
+                                 <div class="w-16 h-16 bg-gray-400 rounded-full mx-auto mb-2 flex items-center justify-center">
+                                     <span class="text-2xl">🎮</span>
+                                 </div>
+                                 <p class="text-sm">Game Champion</p>
+                             </div>
+                             <div class="text-center">
+                                 <div class="w-16 h-16 bg-gray-300 rounded-full mx-auto mb-2 flex items-center justify-center">
+                                     <span class="text-2xl">⭐</span>
+                                 </div>
+                                 <p class="text-sm">Community Leader</p>
+                             </div>
+                         </div>
+                     </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- AI Tools Page -->
+    <div id="ai-tools" class="page">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+            <h1 class="text-3xl font-bold text-gray-900 mb-8">AI Financial Tools</h1>
+            
+            <div class="bg-white rounded-lg shadow-md">
+                <div class="border-b">
+                    <nav class="flex space-x-8 px-6">
+                        <button onclick="showAiTool('analysis')" class="ai-tab py-4 px-1 border-b-2 font-medium text-sm" data-tool="analysis">Analysis</button>
+                        <button onclick="showAiTool('goals')" class="ai-tab py-4 px-1 border-b-2 font-medium text-sm" data-tool="goals">Goals</button>
+                        <button onclick="showAiTool('motivation')" class="ai-tab py-4 px-1 border-b-2 font-medium text-sm" data-tool="motivation">Motivation</button>
+                    </nav>
+                </div>
+
+                <div class="p-6">
+                                         <div id="analysis-tool" class="ai-content">
+                         <h3 class="text-lg font-semibold mb-4">Spending Analysis</h3>
+                         <p class="text-gray-600 mb-4">AI analysis of your spending patterns and recommendations.</p>
+                         <div class="bg-blue-50 p-4 rounded-lg">
+                             <h4 class="font-semibold mb-2">AI Insights:</h4>
+                             <ul class="list-disc list-inside space-y-1">
+                                 <li>You're spending 25% more on food than average</li>
+                                 <li>Consider meal prepping to save $150/month</li>
+                                 <li>Your entertainment budget is well-managed</li>
+                                 <li>Transportation costs are 15% below average - great job!</li>
+                                 <li>You could save $200/month by reducing impulse purchases</li>
+                             </ul>
+                             <div class="mt-4 p-3 bg-blue-100 rounded">
+                                 <h5 class="font-medium mb-2">Smart Recommendations:</h5>
+                                 <ul class="list-disc list-inside text-sm space-y-1">
+                                     <li>Set up automatic transfers to savings account</li>
+                                     <li>Use cash-back credit cards for groceries</li>
+                                     <li>Consider carpooling to reduce transport costs</li>
+                                     <li>Track all expenses for 30 days to identify patterns</li>
+                                 </ul>
+                             </div>
+                         </div>
+                     </div>
+
+                                         <div id="goals-tool" class="ai-content hidden">
+                         <h3 class="text-lg font-semibold mb-4">Goal Recommendations</h3>
+                         <p class="text-gray-600 mb-4">Personalized financial goals based on your age and situation.</p>
+                         <div class="bg-green-50 p-4 rounded-lg">
+                             <h4 class="font-semibold mb-2">Recommended Goals:</h4>
+                             <ul class="list-disc list-inside space-y-1">
+                                 <li>Build a $1000 emergency fund (3 months)</li>
+                                 <li>Start investing 10% of income (long-term)</li>
+                                 <li>Save for a car down payment (12 months)</li>
+                                 <li>Pay off any credit card debt (6 months)</li>
+                                 <li>Start a retirement account (immediate)</li>
+                             </ul>
+                             <div class="mt-4 p-3 bg-green-100 rounded">
+                                 <h5 class="font-medium mb-2">Goal Setting Tips:</h5>
+                                 <ul class="list-disc list-inside text-sm space-y-1">
+                                     <li>Make goals SMART: Specific, Measurable, Achievable, Relevant, Time-bound</li>
+                                     <li>Break large goals into smaller milestones</li>
+                                     <li>Automate savings to make it easier</li>
+                                     <li>Review and adjust goals monthly</li>
+                                     <li>Celebrate small wins along the way</li>
+                                 </ul>
+                             </div>
+                         </div>
+                     </div>
+
+                                         <div id="motivation-tool" class="ai-content hidden">
+                         <h3 class="text-lg font-semibold mb-4">Daily Motivation</h3>
+                         <p class="text-gray-600 mb-4">Get personalized motivational messages and tips.</p>
+                         <div class="bg-purple-50 p-4 rounded-lg">
+                             <h4 class="font-semibold mb-2">Today's Message:</h4>
+                             <p class="italic">"Every dollar you save today is an investment in your future. Small changes lead to big results. Keep going!"</p>
+                             <div class="mt-4 p-3 bg-purple-100 rounded">
+                                 <h5 class="font-medium mb-2">Weekly Challenge:</h5>
+                                 <p class="text-sm mb-2">Try the 52-week savings challenge: Save $1 in week 1, $2 in week 2, and so on. By the end of the year, you'll have saved $1,378!</p>
+                                 <button onclick="startChallenge()" class="bg-purple-600 text-white px-4 py-2 rounded text-sm hover:bg-purple-700">
+                                     Start Challenge
+                                 </button>
+                             </div>
+                             <div class="mt-4 p-3 bg-purple-100 rounded">
+                                 <h5 class="font-medium mb-2">Financial Quote:</h5>
+                                 <p class="text-sm italic">"The best investment you can make is in yourself." - Warren Buffett</p>
+                             </div>
+                         </div>
+                     </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Profile Page -->
+    <div id="profile" class="page">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+            <h1 class="text-3xl font-bold text-gray-900 mb-8">Profile</h1>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Profile Header -->
+                <div class="md:col-span-1">
+                    <div class="bg-white rounded-lg shadow-md p-6">
+                        <div class="text-center">
+                                                         <div class="w-24 h-24 bg-green-600 rounded-full mx-auto mb-4 flex items-center justify-center">
+                                <span class="text-3xl text-white font-bold">AJ</span>
+                            </div>
+                            <h2 class="text-xl font-semibold">Alex Johnson</h2>
+                            <p class="text-gray-600">Age: 19</p>
+                            <p class="text-gray-600">Level: Intermediate</p>
+                                                         <p class="text-green-600 font-semibold">🔥 15 day streak</p>
+                                                         <button class="mt-4 bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">
+                                Edit Profile
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Stats and Progress -->
+                <div class="md:col-span-2">
+                    <div class="bg-white rounded-lg shadow-md p-6 mb-6">
+                        <h3 class="text-lg font-semibold mb-4">Financial Literacy Progress</h3>
+                        <div class="space-y-4">
+                            <div>
+                                <div class="flex justify-between mb-1">
+                                    <span>Budgeting</span>
+                                    <span>75%</span>
+                                </div>
+                                <div class="w-full bg-gray-200 rounded-full h-2">
+                                    <div class="bg-green-500 h-2 rounded-full" style="width: 75%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between mb-1">
+                                    <span>Saving</span>
+                                    <span>60%</span>
+                                </div>
+                                <div class="w-full bg-gray-200 rounded-full h-2">
+                                    <div class="bg-blue-500 h-2 rounded-full" style="width: 60%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between mb-1">
+                                    <span>Investing</span>
+                                    <span>30%</span>
+                                </div>
+                                <div class="w-full bg-gray-200 rounded-full h-2">
+                                    <div class="bg-purple-500 h-2 rounded-full" style="width: 30%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-lg shadow-md p-6">
+                        <h3 class="text-lg font-semibold mb-4">Recent Activity</h3>
+                        <div class="space-y-3">
+                            <div class="flex items-center space-x-3">
+                                <div class="w-2 h-2 bg-green-500 rounded-full"></div>
+                                <span>Completed Budget Challenge</span>
+                                <span class="text-gray-500 text-sm">2 hours ago</span>
+                            </div>
+                            <div class="flex items-center space-x-3">
+                                <div class="w-2 h-2 bg-blue-500 rounded-full"></div>
+                                <span>Joined "Saving Squad" group</span>
+                                <span class="text-gray-500 text-sm">1 day ago</span>
+                            </div>
+                            <div class="flex items-center space-x-3">
+                                <div class="w-2 h-2 bg-purple-500 rounded-full"></div>
+                                <span>Earned "First Save" badge</span>
+                                <span class="text-gray-500 text-sm">3 days ago</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Navigation functions
+        function showPage(pageId) {
+            // Hide all pages
+            document.querySelectorAll('.page').forEach(page => {
+                page.classList.remove('active');
+            });
+            
+            // Show selected page
+            document.getElementById(pageId).classList.add('active');
+            
+            // Update navigation buttons
+            document.querySelectorAll('.nav-btn').forEach(btn => {
+                btn.classList.remove('nav-active');
+            });
+            
+            const activeBtn = document.querySelector(`[data-page="${pageId}"]`);
+            if (activeBtn) {
+                activeBtn.classList.add('nav-active');
+            }
+            
+            // Hide mobile menu
+            document.getElementById('mobile-menu').classList.add('hidden');
+        }
+
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        }
+
+        // Game functions
+        function showGame(gameType) {
+            document.querySelectorAll('.game-content').forEach(content => {
+                content.classList.add('hidden');
+            });
+            
+            document.querySelectorAll('.game-btn').forEach(btn => {
+                btn.classList.remove('bg-indigo-600', 'text-white');
+                btn.classList.add('bg-gray-200');
+            });
+            
+                         document.getElementById(`${gameType}-game`).classList.remove('hidden');
+             event.target.classList.remove('bg-gray-200');
+             event.target.classList.add('bg-green-600', 'text-white');
+        }
+
+        function updateScore(gameType) {
+            const scoreElement = document.getElementById(`${gameType}-score`);
+            const currentScore = parseInt(scoreElement.textContent);
+            const newScore = currentScore + (gameType === 'budget' ? 10 : 15);
+            scoreElement.textContent = newScore;
+        }
+
+                 // Squad functions
+         function showSquadTab(tabName) {
+             document.querySelectorAll('.squad-content').forEach(content => {
+                 content.classList.add('hidden');
+             });
+             
+             document.querySelectorAll('.squad-tab').forEach(tab => {
+                 tab.classList.remove('border-green-500', 'text-green-600');
+                 tab.classList.add('border-transparent', 'text-gray-500');
+             });
+             
+             document.getElementById(`${tabName}-tab`).classList.remove('hidden');
+             event.target.classList.remove('border-transparent', 'text-gray-500');
+             event.target.classList.add('border-green-500', 'text-green-600');
+         }
+
+                 // AI Tools functions
+         function showAiTool(toolName) {
+             document.querySelectorAll('.ai-content').forEach(content => {
+                 content.classList.add('hidden');
+             });
+             
+             document.querySelectorAll('.ai-tab').forEach(tab => {
+                 tab.classList.remove('border-green-500', 'text-green-600');
+                 tab.classList.add('border-transparent', 'text-gray-500');
+             });
+             
+             document.getElementById(`${toolName}-tool`).classList.remove('hidden');
+             event.target.classList.remove('border-transparent', 'text-gray-500');
+             event.target.classList.add('border-green-500', 'text-green-600');
+         }
+
+        // Chart data
+        const spendingData = [
+            { name: 'Food & Dining', value: 300, color: '#3B82F6' },
+            { name: 'Transportation', value: 150, color: '#10B981' },
+            { name: 'Entertainment', value: 200, color: '#F59E0B' },
+            { name: 'Books & Supplies', value: 100, color: '#EF4444' },
+            { name: 'Other', value: 50, color: '#8B5CF6' }
+        ];
+
+        const monthlyData = [
+            { month: 'Jan', income: 1200, expenses: 800 },
+            { month: 'Feb', income: 1100, expenses: 750 },
+            { month: 'Mar', income: 1300, expenses: 900 },
+            { month: 'Apr', income: 1200, expenses: 800 },
+            { month: 'May', income: 1400, expenses: 850 },
+            { month: 'Jun', income: 1250, expenses: 780 }
+        ];
+
+        // Game variables
+        let currentScenario = 0;
+        const scenarios = [
+            {
+                text: "You have $500. A new phone costs $400. What do you do?",
+                save: "Save the money for emergencies",
+                spend: "Buy the phone now",
+                correct: "save"
+            },
+            {
+                text: "You want to go to a concert ($150) but also need to save for textbooks ($200). What do you do?",
+                save: "Save for textbooks",
+                spend: "Go to the concert",
+                correct: "save"
+            },
+            {
+                text: "You found $100. A friend wants to split dinner ($80) or you could save it. What do you do?",
+                save: "Save the money",
+                spend: "Split dinner with friend",
+                correct: "spend"
+            }
+        ];
+
+        // Draw Pie Chart
+        function drawPieChart() {
+            const canvas = document.getElementById('pieChart');
+            if (!canvas) return;
+            
+            const ctx = canvas.getContext('2d');
+            const centerX = canvas.width / 2;
+            const centerY = canvas.height / 2;
+            const radius = 70;
+
+            // Clear canvas
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            let total = spendingData.reduce((sum, item) => sum + item.value, 0);
+            let currentAngle = 0;
+
+            spendingData.forEach((item, index) => {
+                const sliceAngle = (item.value / total) * 2 * Math.PI;
+                
+                ctx.beginPath();
+                ctx.moveTo(centerX, centerY);
+                ctx.arc(centerX, centerY, radius, currentAngle, currentAngle + sliceAngle);
+                ctx.closePath();
+                ctx.fillStyle = item.color;
+                ctx.fill();
+                
+                currentAngle += sliceAngle;
+            });
+
+            // Draw legend
+            const legend = document.getElementById('pieLegend');
+            if (legend) {
+                legend.innerHTML = spendingData.map(item => 
+                    `<div class="flex items-center justify-between p-2 bg-gray-50 rounded">
+                        <div class="flex items-center">
+                            <div class="w-3 h-3 rounded mr-2" style="background-color: ${item.color}"></div>
+                            <span class="text-sm">${item.name}</span>
+                        </div>
+                        <span class="text-sm font-medium">$${item.value}</span>
+                    </div>`
+                ).join('');
+            }
+        }
+
+        // Draw Bar Chart
+        function drawBarChart() {
+            const canvas = document.getElementById('barChart');
+            if (!canvas) return;
+            
+            const ctx = canvas.getContext('2d');
+            const width = canvas.width;
+            const height = canvas.height;
+            const padding = 50;
+            const chartWidth = width - 2 * padding;
+            const chartHeight = height - 2 * padding;
+
+            // Clear canvas
+            ctx.clearRect(0, 0, width, height);
+
+            // Find max value
+            const maxValue = Math.max(...monthlyData.map(d => Math.max(d.income, d.expenses)));
+
+            // Draw bars
+            const barWidth = chartWidth / monthlyData.length / 2;
+            monthlyData.forEach((data, index) => {
+                const x = padding + (index * chartWidth / monthlyData.length);
+                
+                // Income bar
+                const incomeHeight = (data.income / maxValue) * chartHeight;
+                ctx.fillStyle = '#10B981';
+                ctx.fillRect(x, height - padding - incomeHeight, barWidth, incomeHeight);
+                
+                // Expenses bar
+                const expensesHeight = (data.expenses / maxValue) * chartHeight;
+                ctx.fillStyle = '#EF4444';
+                ctx.fillRect(x + barWidth, height - padding - expensesHeight, barWidth, expensesHeight);
+            });
+
+            // Draw labels
+            ctx.fillStyle = '#374151';
+            ctx.font = '12px Arial';
+            ctx.textAlign = 'center';
+            monthlyData.forEach((data, index) => {
+                const x = padding + (index * chartWidth / monthlyData.length) + barWidth;
+                ctx.fillText(data.month, x, height - 15);
+            });
+        }
+
+        // Budget game functions
+        function updateBudget() {
+            const food = parseInt(document.getElementById('food-budget').value);
+            const transport = parseInt(document.getElementById('transport-budget').value);
+            const entertainment = parseInt(document.getElementById('entertainment-budget').value);
+            const savings = parseInt(document.getElementById('savings-budget').value);
+            
+            document.getElementById('food-value').textContent = '$' + food;
+            document.getElementById('transport-value').textContent = '$' + transport;
+            document.getElementById('entertainment-value').textContent = '$' + entertainment;
+            document.getElementById('savings-value').textContent = '$' + savings;
+            
+            const total = food + transport + entertainment + savings;
+            const remaining = 1000 - total;
+            document.getElementById('budget-remaining').textContent = remaining;
+            
+            if (remaining < 0) {
+                document.getElementById('budget-remaining').classList.add('text-red-600');
+            } else {
+                document.getElementById('budget-remaining').classList.remove('text-red-600');
+            }
+        }
+
+        function playBudgetGame() {
+            const remaining = parseInt(document.getElementById('budget-remaining').textContent);
+            const score = document.getElementById('budget-score');
+            let currentScore = parseInt(score.textContent);
+            
+            if (remaining >= 0 && remaining <= 100) {
+                currentScore += 50;
+                alert('Great budgeting! You stayed within budget and saved money! +50 points');
+            } else if (remaining > 100) {
+                currentScore += 25;
+                alert('Good job staying within budget! +25 points');
+            } else {
+                alert('You went over budget! Try to allocate your money better.');
+            }
+            
+            score.textContent = currentScore;
+        }
+
+        // Save vs Spend game functions
+        function makeDecision(choice) {
+            const scenario = scenarios[currentScenario];
+            const score = document.getElementById('save-score');
+            let currentScore = parseInt(score.textContent);
+            
+            if (choice === scenario.correct) {
+                currentScore += 20;
+                alert('Smart choice! +20 points');
+            } else {
+                alert('Think about the long-term impact of your financial decisions.');
+            }
+            
+            score.textContent = currentScore;
+        }
+
+        function nextScenario() {
+            currentScenario = (currentScenario + 1) % scenarios.length;
+            const scenario = scenarios[currentScenario];
+            document.getElementById('scenario-text').textContent = scenario.text;
+        }
+
+        function startChallenge() {
+            alert('52-week savings challenge started! Check back weekly to track your progress.');
+        }
+
+        // Initialize the app
+        document.addEventListener('DOMContentLoaded', function() {
+            // Set home as active by default
+            showPage('home');
+            
+            // Draw charts when dashboard is shown
+            setTimeout(() => {
+                drawPieChart();
+                drawBarChart();
+            }, 100);
+        });
+
+        // Update charts when dashboard is shown
+        function showPage(pageId) {
+            // Hide all pages
+            document.querySelectorAll('.page').forEach(page => {
+                page.classList.remove('active');
+            });
+            
+            // Show selected page
+            document.getElementById(pageId).classList.add('active');
+            
+            // Update navigation buttons
+            document.querySelectorAll('.nav-btn').forEach(btn => {
+                btn.classList.remove('nav-active');
+            });
+            
+            const activeBtn = document.querySelector(`[data-page="${pageId}"]`);
+            if (activeBtn) {
+                activeBtn.classList.add('nav-active');
+            }
+            
+            // Hide mobile menu
+            document.getElementById('mobile-menu').classList.add('hidden');
+            
+            // Draw charts if dashboard is shown
+            if (pageId === 'dashboard') {
+                setTimeout(() => {
+                    drawPieChart();
+                    drawBarChart();
+                }, 100);
+            }
+        }
+    </script>
+</body>
+</html> 
